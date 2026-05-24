@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pooja Sri Jesta Balaji | AI/ML Engineer & Software Developer</title>
+<meta name="description" content="Pooja Sri — M.S. Software Engineering @ ASU. AI/ML Engineer, Data Scientist. Available June 15, 2026 on OPT.">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* 60% — Canvas */
+  --bg: #F8FAFB;
+  --bg-card: #FFFFFF;
+  /* 30% — Structure */
+  --dark: #1A1A2E;
+  --dark-mid: #2D2D44;
+  --muted: #6B7280;
+  --border: #E5E7EB;
+  /* 10% — The Pop (Vibrant Teal — Tech signal) */
+  --accent: #0D9488;
+  --accent-hover: #0F766E;
+  --accent-light: #CCFBF1;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--dark); overflow-x: hidden; line-height: 1.6; }
+
+/* ── NAV (30%) ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.1rem 3rem;
+  background: rgba(248,250,251,0.95); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--dark); }
+.nav-links { display: flex; gap: 2.2rem; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--muted); font-size: 0.85rem; font-weight: 400; transition: color 0.2s; }
+.nav-links a:hover { color: var(--accent); }
+/* 10% accent — nav CTA */
+.nav-hire {
+  background: var(--accent); color: white;
+  padding: 0.5rem 1.3rem; border-radius: 6px;
+  font-size: 0.82rem; font-weight: 500; text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.nav-hire:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+/* ── HERO (60% bg, 30% text, 10% accent on name + CTA) ── */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  padding: 7rem 3rem 5rem; background: var(--bg);
+}
+.hero-inner { max-width: 800px; }
+
+.avail-badge {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  background: var(--bg-card); border: 1px solid var(--border);
+  padding: 0.35rem 0.9rem; border-radius: 100px;
+  font-size: 0.75rem; color: var(--muted); font-weight: 400;
+  margin-bottom: 2rem;
+}
+.avail-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(3rem, 6.5vw, 5.5rem);
+  font-weight: 800; line-height: 1.02;
+  letter-spacing: -0.03em; color: var(--dark);
+  margin-bottom: 1.2rem;
+}
+/* 10% accent — name highlight only */
+.hero h1 .name-accent { color: var(--accent); }
+
+.hero-role {
+  font-size: 1.05rem; color: var(--muted);
+  font-weight: 400; margin-bottom: 1rem; letter-spacing: 0.02em;
+}
+.hero-tagline {
+  font-size: 1.1rem; color: var(--dark-mid);
+  font-weight: 300; line-height: 1.8; max-width: 540px;
+  margin-bottom: 1.5rem;
+}
+.hero-contact {
+  display: flex; flex-wrap: wrap; gap: 1.2rem;
+  font-size: 0.83rem; color: var(--muted); margin-bottom: 2.2rem;
+}
+.hero-contact a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.hero-contact a:hover { color: var(--accent); }
+
+.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+/* 10% accent — primary CTA only */
+.btn-primary {
+  background: var(--accent); color: white;
+  padding: 0.85rem 2rem; border-radius: 6px;
+  font-size: 0.9rem; font-weight: 500; text-decoration: none;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+}
+.btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(13,148,136,0.25); }
+.btn-secondary {
+  background: transparent; color: var(--dark);
+  border: 1.5px solid var(--border);
+  padding: 0.85rem 2rem; border-radius: 6px;
+  font-size: 0.9rem; font-weight: 500; text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Key metrics — 10% accent numbers */
+.metrics { display: flex; gap: 3rem; flex-wrap: wrap; }
+.metric-num {
+  font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800;
+  color: var(--accent); display: block; line-height: 1;
+}
+.metric-label { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; display: block; }
+
+/* ── DIVIDER ── */
+.divider { height: 1px; background: var(--border); max-width: 1100px; margin: 0 auto; }
+
+/* ── SECTIONS ── */
+.section { padding: 5.5rem 3rem; max-width: 1100px; margin: 0 auto; }
+.sec-eyebrow {
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--accent); /* 10% accent — eyebrow label */
+  margin-bottom: 0.5rem;
+}
+.sec-title {
+  font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700; color: var(--dark); margin-bottom: 3rem; line-height: 1.2;
+}
+
+/* ── ABOUT ── */
+.about-grid { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 5rem; align-items: start; }
+.about-p { color: var(--muted); line-height: 1.9; margin-bottom: 1rem; font-size: 0.97rem; font-weight: 300; }
+.about-p strong { color: var(--dark); font-weight: 500; }
+.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.astat { background: var(--bg-card); padding: 1.5rem 1rem; text-align: center; }
+.astat-n { font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--accent); display: block; }
+.astat-l { font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem; display: block; letter-spacing: 0.04em; }
+
+/* ── SKILLS ── */
+.skills-container { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 2.5rem; }
+.skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+.sg-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark); margin-bottom: 0.9rem; }
+.pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.pill {
+  font-size: 0.78rem; padding: 0.28rem 0.75rem;
+  border-radius: 4px; border: 1px solid var(--border);
+  color: var(--muted); background: var(--bg);
+  font-weight: 400; transition: all 0.15s;
+}
+/* 10% accent — skill pill hover only */
+.pill:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+
+/* ── EXPERIENCE ── */
+.timeline { position: relative; }
+.timeline::before {
+  content: ''; position: absolute; left: 0; top: 6px; bottom: 0;
+  width: 1px; background: var(--border);
+}
+.ti { padding: 0 0 2.8rem 2rem; position: relative; }
+.ti-dot {
+  position: absolute; left: -5px; top: 6px;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--accent); /* 10% accent — timeline dots */
+}
+.ti-period { font-size: 0.72rem; color: var(--muted); font-weight: 400; margin-bottom: 0.3rem; letter-spacing: 0.04em; }
+.ti-role { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 0.15rem; }
+.ti-co { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.65rem; }
+.ti-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.8; font-weight: 300; }
+
+/* ── EDUCATION ── */
+.edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.edu-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 1.8rem; transition: border-color 0.2s; }
+.edu-card:hover { border-color: var(--accent); }
+.edu-deg { font-family: 'Syne', sans-serif; font-size: 0.97rem; font-weight: 700; color: var(--dark); margin-bottom: 0.25rem; }
+.edu-school { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.15rem; }
+.edu-year { font-size: 0.75rem; color: var(--muted); }
+
+/* ── PROJECTS ── */
+.proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.pc {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 10px; display: flex; flex-direction: column;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+/* 10% accent — card hover border only */
+.pc:hover { border-color: var(--accent); box-shadow: 0 4px 24px rgba(13,148,136,0.08); transform: translateY(-3px); transition: all 0.2s; }
+.pc-accent-bar { height: 3px; background: var(--border); transition: background 0.2s; }
+.pc:hover .pc-accent-bar { background: var(--accent); }
+.pc-body { padding: 1.4rem 1.4rem 0.8rem; flex: 1; }
+.pc-num { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--border); line-height: 1; margin-bottom: 0.5rem; }
+.pc-cat { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+.pc-title { font-family: 'Syne', sans-serif; font-size: 0.93rem; font-weight: 700; color: var(--dark); margin-bottom: 0.6rem; line-height: 1.35; }
+.pc-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
+.pc-techs { display: flex; flex-wrap: wrap; gap: 0.3rem; padding: 0.8rem 1.4rem; }
+.chip { font-size: 0.65rem; padding: 0.18rem 0.5rem; border-radius: 4px; background: var(--bg); color: var(--muted); border: 1px solid var(--border); }
+.pc-foot { padding: 0.9rem 1.4rem; border-top: 1px solid var(--border); display: flex; gap: 0.7rem; flex-wrap: wrap; }
+/* 10% accent — project GitHub button */
+.pb-gh {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  padding: 0.38rem 0.9rem; border-radius: 5px;
+  font-size: 0.75rem; font-weight: 500; text-decoration: none;
+  background: var(--accent); color: white;
+  transition: background 0.15s;
+}
+.pb-gh:hover { background: var(--accent-hover); }
+.pb-soon {
+  font-size: 0.73rem; color: var(--muted); font-style: italic;
+  display: inline-flex; align-items: center; padding: 0.38rem 0;
+}
+
+/* ── CONTACT ── */
+.contact-box {
+  background: var(--dark); border-radius: 14px;
+  padding: 4rem; display: grid;
+  grid-template-columns: 1fr auto; gap: 3rem; align-items: center;
+}
+.contact-box h2 { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: white; margin-bottom: 0.7rem; }
+.contact-box p { color: rgba(255,255,255,0.55); font-size: 0.92rem; line-height: 1.75; font-weight: 300; }
+.contact-box p strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+.contact-btns { display: flex; flex-direction: column; gap: 0.8rem; }
+/* 10% accent — contact primary CTA */
+.cb-accent {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.85rem 1.8rem; border-radius: 6px;
+  background: var(--accent); color: white;
+  font-size: 0.88rem; font-weight: 500; text-decoration: none;
+  transition: background 0.2s, transform 0.15s; white-space: nowrap;
+}
+.cb-accent:hover { background: var(--accent-hover); transform: translateX(3px); }
+.cb-outline {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.85rem 1.8rem; border-radius: 6px;
+  background: transparent; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.7);
+  font-size: 0.88rem; font-weight: 500; text-decoration: none;
+  transition: border-color 0.2s, color 0.2s; white-space: nowrap;
+}
+.cb-outline:hover { border-color: rgba(255,255,255,0.5); color: white; }
+
+footer { border-top: 1px solid var(--border); padding: 1.8rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+footer p { font-size: 0.78rem; color: var(--muted); }
+footer a { color: var(--accent); text-decoration: none; font-size: 0.78rem; }
+
+.fade { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade.in { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
+  .hero { padding: 6rem 1.5rem 4rem; }
+  .section { padding: 4rem 1.5rem; }
+  .about-grid, .edu-grid, .skills-grid { grid-template-columns: 1fr; }
+  .proj-grid { grid-template-columns: 1fr; }
+  .contact-box { grid-template-columns: 1fr; padding: 2.2rem 1.8rem; }
+  footer { padding: 1.5rem; }
+  .metrics { gap: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Pooja Sri.</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:poojasri776@gmail.com" class="nav-hire">Hire Me →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="avail-badge"><span class="avail-dot"></span> Available June 15, 2026 · OPT Ready · Open to Relocation</div>
+    <h1>Pooja Sri<br><span class="name-accent">Jesta Balaji</span></h1>
+    <div class="hero-role">M.S. Software Engineering · AI/ML Engineer · Data Scientist</div>
+    <p class="hero-tagline">Building production-ready AI systems that solve real-world problems.</p>
+    <div class="hero-contact">
+      <span>📧 <a href="mailto:poojasri776@gmail.com">poojasri776@gmail.com</a></span>
+      <span>📞 (737) 775-5405</span>
+      <span><a href="https://linkedin.com/in/pooja-sri-27544b32" target="_blank">LinkedIn ↗</a></span>
+      <span><a href="https://github.com/pjestaba" target="_blank">GitHub ↗</a></span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">View My Work ↓</a>
+      <a href="https://linkedin.com/in/pooja-sri-27544b32" target="_blank" class="btn-secondary">LinkedIn →</a>
+      <a href="https://github.com/pjestaba" target="_blank" class="btn-secondary">GitHub →</a>
+    </div>
+    <div class="metrics">
+      <div><span class="metric-num">9+</span><span class="metric-label">Projects Built</span></div>
+      <div><span class="metric-num">3</span><span class="metric-label">Internships</span></div>
+      <div><span class="metric-num">2</span><span class="metric-label">Degrees</span></div>
+      <div><span class="metric-num">OPT</span><span class="metric-label">From June 15, 2026</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<div class="section fade" id="about">
+  <div class="sec-eyebrow">About</div>
+  <div class="sec-title">Engineer by training, builder by nature.</div>
+  <div class="about-grid">
+    <div>
+      <p class="about-p">M.S. Software Engineering graduate from <strong>Arizona State University (May 2026)</strong> with a B.Tech in Computer Science (AI & ML) from Vellore Institute of Technology. I build end-to-end AI systems — from RAG pipelines and agentic workflows to full-stack applications and scalable data pipelines.</p>
+      <p class="about-p">I've interned at <strong>Citizens Bank</strong>, <strong>Hewlett Packard Enterprise (Singapore)</strong>, and <strong>C-DAC</strong>, and I'm actively seeking entry-level roles in <strong>AI/ML Engineering, Data Science, and Software Engineering</strong>.</p>
+      <p class="about-p">Available <strong>June 15, 2026 on OPT</strong>. Open to relocation anywhere in the US.</p>
+    </div>
+    <div class="about-stats">
+      <div class="astat"><span class="astat-n">9+</span><span class="astat-l">Projects</span></div>
+      <div class="astat"><span class="astat-n">3</span><span class="astat-l">Internships</span></div>
+      <div class="astat"><span class="astat-n">2</span><span class="astat-l">Degrees</span></div>
+      <div class="astat"><span class="astat-n">OPT</span><span class="astat-l">Jun 15 '26</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<div class="section fade" id="skills">
+  <div class="sec-eyebrow">Technical Skills</div>
+  <div class="sec-title">What I work with</div>
+  <div class="skills-container">
+    <div class="skills-grid">
+      <div>
+        <div class="sg-title">AI / ML / GenAI</div>
+        <div class="pills">
+          <span class="pill">LangChain</span><span class="pill">LangGraph</span><span class="pill">RAG Pipelines</span>
+          <span class="pill">ChromaDB</span><span class="pill">FAISS</span><span class="pill">LlamaIndex</span>
+          <span class="pill">PyTorch</span><span class="pill">TensorFlow</span><span class="pill">scikit-learn</span>
+          <span class="pill">XGBoost</span><span class="pill">HuggingFace</span><span class="pill">AWS Bedrock</span>
+          <span class="pill">Prompt Engineering</span><span class="pill">Multi-agent</span>
+        </div>
+      </div>
+      <div>
+        <div class="sg-title">Full-Stack & APIs</div>
+        <div class="pills">
+          <span class="pill">React 18</span><span class="pill">TypeScript</span><span class="pill">Node.js</span>
+          <span class="pill">FastAPI</span><span class="pill">Flask</span><span class="pill">Express</span>
+          <span class="pill">REST APIs</span><span class="pill">PostgreSQL</span><span class="pill">MySQL</span>
+          <span class="pill">SQLite</span><span class="pill">Prisma ORM</span>
+        </div>
+      </div>
+      <div>
+        <div class="sg-title">Infrastructure & MLOps</div>
+        <div class="pills">
+          <span class="pill">Docker</span><span class="pill">Kubernetes</span><span class="pill">Kafka</span>
+          <span class="pill">AWS</span><span class="pill">CI/CD</span><span class="pill">Git</span>
+          <span class="pill">MLOps</span><span class="pill">Neo4j</span><span class="pill">Linux</span>
+          <span class="pill">LangSmith</span><span class="pill">pytest</span>
+        </div>
+      </div>
+      <div>
+        <div class="sg-title">Languages & Data</div>
+        <div class="pills">
+          <span class="pill">Python</span><span class="pill">SQL</span><span class="pill">R</span>
+          <span class="pill">Java</span><span class="pill">JavaScript</span><span class="pill">C++</span>
+          <span class="pill">Pandas</span><span class="pill">NumPy</span><span class="pill">EDA</span>
+          <span class="pill">Feature Engineering</span><span class="pill">Tableau</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<div class="section fade" id="experience">
+  <div class="sec-eyebrow">Experience</div>
+  <div class="sec-title">Where I've worked</div>
+  <div class="timeline">
+    <div class="ti"><div class="ti-dot"></div>
+      <div class="ti-period">Jun 2025 – Aug 2025</div>
+      <div class="ti-role">Software Developer Intern</div>
+      <div class="ti-co">Citizens Bank · Providence, RI</div>
+      <div class="ti-desc">Built and maintained automated test pipelines for backend APIs and transaction systems in a regulated financial services environment. Contributed to CI/CD workflows, code reviews, and production monitoring using GitHub-based Agile sprints.</div>
+    </div>
+    <div class="ti"><div class="ti-dot"></div>
+      <div class="ti-period">Jun 2022 – Jul 2022</div>
+      <div class="ti-role">Data Science Intern</div>
+      <div class="ti-co">Hewlett Packard Enterprise · Singapore</div>
+      <div class="ti-desc">Analyzed large-scale datasets using Python and SQL. Built and deployed a production computer vision pipeline using YOLOv5 for license plate detection and OCR for automated text extraction.</div>
+    </div>
+    <div class="ti"><div class="ti-dot"></div>
+      <div class="ti-period">May 2023 – Jun 2023</div>
+      <div class="ti-role">Machine Learning Intern</div>
+      <div class="ti-co">C-DAC · India</div>
+      <div class="ti-desc">Built real-time ETL pipelines with automated data validation and quality checks. Containerized environments using Docker. Diagnosed and resolved distributed pipeline failures to improve system reliability.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<div class="section fade" id="education">
+  <div class="sec-eyebrow">Education</div>
+  <div class="sec-title">Academic background</div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-deg">M.S., Software Engineering</div>
+      <div class="edu-school">Arizona State University · Tempe, AZ</div>
+      <div class="edu-year">May 2026</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-deg">B.Tech, Computer Science (AI & ML)</div>
+      <div class="edu-school">Vellore Institute of Technology · India</div>
+      <div class="edu-year">May 2024</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<div class="section fade" id="projects">
+  <div class="sec-eyebrow">Projects</div>
+  <div class="sec-title">Things I've built</div>
+  <div class="proj-grid">
+
+    <div class="pc">
+      <div class="pc-accent-bar"></div>
+      <div class="pc-body">
+        <div class="pc-num">01</div><div class="pc-cat">GenAI · LLMs</div>
+        <div class="pc-title">RAG AI Chatbot</div>
+        <div class="pc-desc">End-to-end RAG pipeline with document ingestion, MMR-based retrieval, multi-turn conversational memory, and real-time Streamlit UI.</div>
+      </div>
+      <div class="pc-techs"><span class="chip">Python</span><span class="chip">LangChain</span><span class="chip">OpenAI API</span><span class="chip">ChromaDB</span><span class="chip">Streamlit</span></div>
+      <div class="pc-foot"><a href="https://github.com/pjestaba/RAG-AI-Chatbot" target="_blank" class="pb-gh">↗ GitHub</a></div>
+    </div>
+
+    <div class="pc">
+      <div class="pc-accent-bar"></div>
+      <div class="pc-body">
+        <div class="pc-num">02</div><div class="pc-cat">ML · Recommendation</div>
+        <div class="pc-title">SmartRec — Hybrid Product Recommendation Engine</div>
+        <div class="pc-desc">SVD + Neural Collaborative Filtering in PyTorch, trained on 1M+ Amazon reviews. FastAPI endpoints + Streamlit UI, containerized with Docker.</div>
+      </div>
+      <div class="pc-techs"><span class="chip">PyTorch</span><span class="chip">FastAPI</span><span class="chip">SVD</span><span class="chip">NCF</span><span class="chip">Docker</span></div>
+      <div class="pc-foot"><a href="https://github.com/poojasri7/SmartRec" target="_blank" class="pb-gh">↗ GitHub</a></div>
+    </div>
+
+    <div class="pc">
+      <div class="pc-accent-bar"></div>
+      <div class="pc-body">
+        <div class="pc-num">03</div><div class="pc-cat">Full-Stack · Ed-Tech</div>
+        <div class="pc-title">PALETTE — Canvas LMS Grading Assistant</div>
+        <div class="pc-desc">Production-ready grading assistant for ASU faculty. Canvas LMS API integration for rubric management, group matrix grading, and real-time analytics. Presented at ASU Innovation Showcase.</div>
+      </div>
+      <div class="pc-techs"><span class="chip">React 18</span><span class="chip">TypeScript</span><span class="chip">Node.js</span><span class="chip">Prisma</span><span class="chip">Canvas API</span></div>
+      <div class="pc-foot"><a href="https://github.com/abhinavReja/SER517-Capstone-Faculty-Group-8" target="_blank" class="pb-gh">↗ GitHub</a></div>
+    </div>
+
+    <div class="pc">
+      <div class="pc-accent-bar"></div>
+      <div class="pc-body">
+        <div class="pc-num">04</div><div class="pc-cat">MLOps · Data Engineering</div>
+        <div class="pc-title">Scalable Document Processing Pipeline</div>
+        <div class="pc-desc">Distributed streaming pipeline with Kafka, fault-tolerant orchestration via Kubernetes, and graph-based analytics with Neo4j.</div>
+      </div>
+      <div class="pc-techs"><span class="chip">Kafka</span><span class="chip">Kubernetes</span><span class="chip">Neo4j</span><span class="chip">Docker</span></div>
+      <div class="pc-foot"><a href="https://github.com/pjestaba/scalable-doc-pipeline" target="_blank" class="pb-gh">↗ GitHub</a></div>
+    </div>
+
+    <div class="pc">
+      <div class="pc-accent-bar"></div>
+      <div class="pc-body">
+        <div class="pc-num">05</div><div class="pc-cat">Deep Learning · Cybersecurity</div>
+        <div class="pc-title">Malicious URL Detection</div>
+        <div class="pc-desc">Benchmarked CNN+LSTM+Attention, RNN, XGBoost models for binary URL classification with end-to-end EDA and feature engineering.</div>
+      </div>
+      <div class="pc-techs"><span class="chip">TensorFlow</span><span class="chip">CNN+LSTM</span><span class="chip">XGBoost</span><span class="chip">Python</span></div>
+      <div class="pc-foot"><span class="pb-soon">Link coming soon</span></div>
+    </div>
+
+    <div class="pc">
+      <div class="pc-accent-bar"></div>
+      <div class="pc-body">
+        <div class="pc-num">06</div><div class="pc-cat">Deep Learning · Time Series</div>
+        <div class="pc-title">Traffic Flow Prediction Using LSTM</div>
+        <div class="pc-desc">Urban traffic forecasting on PEMS04 sensor data. Compared LSTM, STGCN, and ASTGCN architectures with MAE/RMSE evaluation.</div>
+      </div>
+      <div class="pc-techs"><span class="chip">PyTorch</span><span class="chip">LSTM</span><span class="chip">STGCN</span><span class="chip">ASTGCN</span></div>
+      <div class="pc-foot"><a href="https://github.com/shruthic06/Traffic_Flow_Prediction" target="_blank" class="pb-gh">↗ GitHub</a></div>
+    </div>
+
+    <div class="pc">
+      <div class="pc-accent-bar"></div>
+      <div class="pc-body">
+        <div class="pc-num">07</div><div class="pc-cat">Healthcare AI</div>
+        <div class="pc-title">ECG Arrhythmia Detection</div>
+        <div class="pc-desc">Deep learning model segmenting ECG signals into 6-second intervals for arrhythmia classification across CNN, DenseNN, and LSTM architectures.</div>
+      </div>
+      <div class="pc-techs"><span class="chip">TensorFlow</span><span class="chip">CNN</span><span class="chip">LSTM</span><span class="chip">DenseNN</span></div>
+      <div class="pc-foot"><span class="pb-soon">Link coming soon</span></div>
+    </div>
+
+    <div class="pc">
+      <div class="pc-accent-bar"></div>
+      <div class="pc-body">
+        <div class="pc-num">08</div><div class="pc-cat">Computer Vision</div>
+        <div class="pc-title">License Plate Detection using YOLOv5</div>
+        <div class="pc-desc">Real-time license plate detection and OCR-based text extraction. Deployed as a production CV pipeline at Hewlett Packard Enterprise Singapore.</div>
+      </div>
+      <div class="pc-techs"><span class="chip">YOLOv5</span><span class="chip">OCR</span><span class="chip">OpenCV</span><span class="chip">Python</span></div>
+      <div class="pc-foot"><a href="https://github.com/yashkesar/Licence_Plate_Number_Detection-using-yolov5" target="_blank" class="pb-gh">↗ GitHub</a></div>
+    </div>
+
+    <div class="pc">
+      <div class="pc-accent-bar"></div>
+      <div class="pc-body">
+        <div class="pc-num">09</div><div class="pc-cat">Full-Stack · Healthcare</div>
+        <div class="pc-title">Organ Donation Management System</div>
+        <div class="pc-desc">Full-stack app for organ donation logistics with dynamic search, real-time SQL queries, and user-driven filtering across donor and hospital records.</div>
+      </div>
+      <div class="pc-techs"><span class="chip">HTML/CSS</span><span class="chip">JavaScript</span><span class="chip">SQL</span></div>
+      <div class="pc-foot"><span class="pb-soon">Link coming soon</span></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<div class="section fade" id="contact" style="padding-bottom: 5rem;">
+  <div class="contact-box">
+    <div>
+      <h2>Let's work together.</h2>
+      <p>Open to <strong>AI/ML Engineer, Data Scientist, and Software Engineer</strong> roles.<br>
+      Available <strong>June 15, 2026 on OPT</strong> · Open to relocation anywhere in the US.</p>
+    </div>
+    <div class="contact-btns">
+      <a href="mailto:poojasri776@gmail.com" class="cb-accent">📧 poojasri776@gmail.com</a>
+      <a href="https://linkedin.com/in/pooja-sri-27544b32" target="_blank" class="cb-outline">LinkedIn →</a>
+      <a href="https://github.com/pjestaba" target="_blank" class="cb-outline">GitHub →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Pooja Sri Jesta Balaji</p>
+  <a href="mailto:poojasri776@gmail.com">Get in touch</a>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.07 });
+document.querySelectorAll('.fade, .pc, .ti, .edu-card').forEach(el => {
+  el.classList.add('fade'); obs.observe(el);
+});
+</script>
+</body>
+</html>
