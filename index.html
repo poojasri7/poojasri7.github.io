@@ -14,18 +14,18 @@
   --bg: #F4F5F7;
   --bg-card: #FFFFFF;
   /* 30% — Structure */
-  --dark: #1A1A2E;
-  --dark-mid: #2D2D44;
-  --muted: #6B7280;
+  --dark: #0F0F1A;
+  --dark-mid: #1E1E30;
+  --muted: #4B5563;
   --border: #E5E7EB;
   /* 10% — The Pop (Vibrant Teal — Tech signal) */
-  --accent: #2563EB;
-  --accent-hover: #1D4ED8;
-  --accent-light: #DBEAFE;
+  --accent: #4F6EF7;
+  --accent-hover: #3B56E8;
+  --accent-light: #EEF2FF;
 }
 
 html { scroll-behavior: smooth; }
-body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--dark); overflow-x: hidden; line-height: 1.6; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--dark); overflow-x: hidden; line-height: 1.65; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
 /* ── NAV (30%) ── */
 nav {
@@ -99,7 +99,7 @@ nav {
   font-size: 0.9rem; font-weight: 500; text-decoration: none;
   transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
 }
-.btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,99,235,0.25); }
+.btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(79,110,247,0.25); }
 .btn-secondary {
   background: transparent; color: var(--dark);
   border: 1.5px solid var(--border);
@@ -129,7 +129,7 @@ nav {
 }
 .sec-title {
   font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 3vw, 2.4rem);
-  font-weight: 700; color: var(--dark); margin-bottom: 3rem; line-height: 1.2;
+  font-weight: 800; color: var(--dark); margin-bottom: 3rem; line-height: 1.2; letter-spacing: -0.02em;
 }
 
 /* ── ABOUT ── */
@@ -189,7 +189,7 @@ nav {
   overflow: hidden;
 }
 /* 10% accent — card hover border only */
-.pc:hover { border-color: var(--accent); box-shadow: 0 4px 24px rgba(37,99,235,0.08); transform: translateY(-3px); transition: all 0.2s; }
+.pc:hover { border-color: var(--accent); box-shadow: 0 4px 24px rgba(79,110,247,0.08); transform: translateY(-3px); transition: all 0.2s; }
 .pc-accent-bar { height: 3px; background: var(--border); transition: background 0.2s; }
 .pc:hover .pc-accent-bar { background: var(--accent); }
 .pc-body { padding: 1.4rem 1.4rem 0.8rem; flex: 1; }
@@ -257,7 +257,7 @@ footer a { color: var(--accent); text-decoration: none; font-size: 0.78rem; }
   display: grid; grid-template-columns: 1.1fr 0.9fr;
   transition: box-shadow 0.2s;
 }
-.pc-featured:hover { box-shadow: 0 8px 32px rgba(37,99,235,0.12); }
+.pc-featured:hover { box-shadow: 0 8px 32px rgba(79,110,247,0.12); }
 .pc-featured-img {
   width: 100%; height: 100%; min-height: 240px;
   object-fit: cover; display: block;
@@ -563,6 +563,18 @@ footer a { color: var(--accent); text-decoration: none; font-size: 0.78rem; }
       </div>
       <div class="pc-techs"><span class="chip">HTML/CSS</span><span class="chip">JavaScript</span><span class="chip">SQL</span></div>
       <div class="pc-foot"><span class="pb-soon">Link coming soon</span></div>
+    </div>
+
+
+    <div class="pc">
+      <div class="pc-accent-bar"></div>
+      <div class="pc-body">
+        <div class="pc-num">10</div><div class="pc-cat">GenAI · Audio ML</div>
+        <div class="pc-title">MuseAI — Text-to-Music Generation</div>
+        <div class="pc-desc">Text-to-music generation app using Meta's MusicGen model. Designed a prompt engineering layer that maps mood and instrument keywords to music-theory vocabulary, improving output quality without any additional model or API cost. Streamlit UI with controls for duration, temperature, and model size.</div>
+      </div>
+      <div class="pc-techs"><span class="chip">Python</span><span class="chip">PyTorch</span><span class="chip">MusicGen</span><span class="chip">HuggingFace</span><span class="chip">Streamlit</span></div>
+      <div class="pc-foot"><a href="https://github.com/poojasri7/museai-text-to-music" target="_blank" class="pb-gh">↗ GitHub</a></div>
     </div>
 
     <!-- FEATURED: Medicaid Billing Anomaly Detection -->
